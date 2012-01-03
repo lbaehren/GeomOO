@@ -25,9 +25,10 @@ set (GeomOO_VERSION "${GeomOO_VERSION_MAJOR}.${GeomOO_VERSION_MINOR}.${GeomOO_VE
 ##
 ## ==============================================================================
 
-option (ENABLE_TESTING     "Enable testing framework?"                  YES )
-option (SWIG_ENABLE_PYTHON "Enable SWIG generated wrapper for Python?"  YES )
-option (SWIG_ENABLE_RUBY   "Enable SWIG generated wrapper for Ruby?"    YES )
+option (ENABLE_DOCUMENTATION "Enable generation of documentation?"        YES )
+option (ENABLE_TESTING       "Enable testing framework?"                  YES )
+option (SWIG_ENABLE_PYTHON   "Enable SWIG generated wrapper for Python?"  YES )
+option (SWIG_ENABLE_RUBY     "Enable SWIG generated wrapper for Ruby?"    YES )
 
 ##__________________________________________________________
 ## Handle option: Enable testing framework?
@@ -57,6 +58,10 @@ find_package (SWIG)
 add_subdirectory (cpp)
 add_subdirectory (python)
 add_subdirectory (ruby)
+
+if (ENABLE_DOCUMENTATION)
+  add_subdirectory (Documentation)
+endif (ENABLE_DOCUMENTATION)
 
 ## ==============================================================================
 ##
@@ -90,4 +95,7 @@ message (STATUS " .. SWIG executable ............ = ${SWIG_EXECUTABLE}"         
 message (STATUS " .. SWIG version ............... = ${SWIG_VERSION}"            )
 message (STATUS " .. Enable wrapper for Python .. = ${SWIG_ENABLE_PYTHON}"      )
 message (STATUS " .. Enable wrapper for Ruby .... = ${SWIG_ENABLE_RUBY}"        )
+message (STATUS " Generation of documentation:"                                 )
+message (STATUS " .. Doxygen .................... = ${DOXYGEN_EXECUTABLE}"      )
+message (STATUS " .. RDoc ....................... = ${RDOC_EXECUTABLE}"         )
 message (STATUS "------------------------------------------------------------ " )
