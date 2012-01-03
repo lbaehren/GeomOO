@@ -1,0 +1,24 @@
+
+  1. Introduction
+  2. Configuration & Build
+
+_________________________________________________________________________________
+>>> 1. Introduction
+
+GeomOO is a small educational project for gaining knowledge in the usage of 
+a number of programming language. Instead of using the over-used, all-present
+"Hello World" example, I decided to rather go for something which also would 
+be easy to introduce novices to OO concepts.
+
+
+_________________________________________________________________________________
+>>> 2. Configuration & Build
+
+Though some of the examples are using scripting languages which do not require 
+previous compilation, others do - hence some basic configuration and build 
+framework is required.
+
+  mkdir build
+  cd build
+  cmake ..
+  make
