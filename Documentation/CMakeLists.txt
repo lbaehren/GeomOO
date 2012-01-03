@@ -20,7 +20,26 @@ find_program (RDOC_EXECUTABLE rdoc
 
 ## ==============================================================================
 ##
-##  System inspection
+##  Documentation generation
 ##
 ## ==============================================================================
 
+##____________________________________________________________________
+##                                                                Ruby
+
+if (RDOC_EXECUTABLE)
+
+  add_custom_target (doc_ruby
+    COMMAND ${RDOC_EXECUTABLE} ${PROJECT_SOURCE_DIR}/ruby
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    )
+
+endif (RDOC_EXECUTABLE)
+
+##____________________________________________________________________
+##                                                               C/C++
+
+if (DOXYGEN_EXECUTABLE)
+
+
+endif (DOXYGEN_EXECUTABLE)

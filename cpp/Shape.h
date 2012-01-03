@@ -7,6 +7,12 @@
 
 const double pi = 3.1415926535897932384626433832795;
 
+/*!
+  \class Shape
+  \ingroup cpp
+  \brief Base class defining the common interface and functionality for all shapes.
+  \author Lars B&auml;hren
+*/
 class Shape {
 
  protected:
