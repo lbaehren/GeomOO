@@ -26,6 +26,7 @@ set (GeomOO_VERSION "${GeomOO_VERSION_MAJOR}.${GeomOO_VERSION_MINOR}.${GeomOO_VE
 ## ==============================================================================
 
 option (ENABLE_TESTING    "Enable testing framework?"                  YES )
+option (SWIG_ENABLE_RUBY  "Enable SWIG generated wrapers for Ruby?"    YES )
 
 ##__________________________________________________________
 ## Handle option: Enable testing framework?
@@ -41,6 +42,11 @@ endif (ENABLE_TESTING)
 ##
 ## ==============================================================================
 
+find_package (PythonInterp)
+find_package (PythonLibs)
+find_package (Ruby)
+find_package (SWIG)
+
 ## ==============================================================================
 ##
 ##  Project sub-directories
@@ -48,3 +54,33 @@ endif (ENABLE_TESTING)
 ## ==============================================================================
 
 add_subdirectory (cpp)
+add_subdirectory (ruby)
+
+## ==============================================================================
+##
+##  Configuration summary
+##
+## ==============================================================================
+
+message (STATUS "------------------------------------------------------------"  )
+message (STATUS "[PulsarTools] Configuration summary."                          )
+message (STATUS "------------------------------------------------------------ " )
+message (STATUS " System configuration:"                                        )
+message (STATUS " .. Processor type ............. = ${CMAKE_SYSTEM_PROCESSOR}"  )
+message (STATUS " .. CMake executable ........... = ${CMAKE_COMMAND}"           )
+message (STATUS " .. CMake version .............. = ${CMAKE_VERSION}"           )
+message (STATUS " .. System name ................ = ${CMAKE_SYSTEM}"            )
+message (STATUS " .. C++ compiler ............... = ${CMAKE_CXX_COMPILER}"      )
+message (STATUS " .. C compiler ................. = ${CMAKE_C_COMPILER}"        )
+message (STATUS " .. size(void*) ................ = ${CMAKE_SIZEOF_VOID_P}"     )
+message (STATUS " Python support:"                                              )
+message (STATUS " Ruby support:"                                                )
+message (STATUS " .. Ruby executable ............ = ${RUBY_EXECUTABLE}"         )
+message (STATUS " .. Ruby version ............... = ${RUBY_VERSION}"            )
+message (STATUS " .. Ruby include directories ... = ${RUBY_INCLUDE_DIRS}"       )
+message (STATUS " .. Ruby library ............... = ${RUBY_LIBRARY}"            )
+message (STATUS " SWIG wrapper:"                                                )
+message (STATUS " .. SWIG executable ............ = ${SWIG_EXECUTABLE}"         )
+message (STATUS " .. SWIG version ............... = ${SWIG_VERSION}"            )
+message (STATUS " .. Enable wrapper for Ruby .... = ${SWIG_ENABLE_RUBY}"        )
+message (STATUS "------------------------------------------------------------ " )
