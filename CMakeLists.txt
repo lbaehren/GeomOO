@@ -25,8 +25,9 @@ set (GeomOO_VERSION "${GeomOO_VERSION_MAJOR}.${GeomOO_VERSION_MINOR}.${GeomOO_VE
 ##
 ## ==============================================================================
 
-option (ENABLE_TESTING    "Enable testing framework?"                  YES )
-option (SWIG_ENABLE_RUBY  "Enable SWIG generated wrapers for Ruby?"    YES )
+option (ENABLE_TESTING     "Enable testing framework?"                  YES )
+option (SWIG_ENABLE_PYTHON "Enable SWIG generated wrapper for Python?"  YES )
+option (SWIG_ENABLE_RUBY   "Enable SWIG generated wrapper for Ruby?"    YES )
 
 ##__________________________________________________________
 ## Handle option: Enable testing framework?
@@ -54,6 +55,7 @@ find_package (SWIG)
 ## ==============================================================================
 
 add_subdirectory (cpp)
+add_subdirectory (python)
 add_subdirectory (ruby)
 
 ## ==============================================================================
@@ -74,13 +76,18 @@ message (STATUS " .. C++ compiler ............... = ${CMAKE_CXX_COMPILER}"      
 message (STATUS " .. C compiler ................. = ${CMAKE_C_COMPILER}"        )
 message (STATUS " .. size(void*) ................ = ${CMAKE_SIZEOF_VOID_P}"     )
 message (STATUS " Python support:"                                              )
+message (STATUS " .. Python interpreter ......... = ${PYTHON_EXECUTABLE}"       )
+message (STATUS " .. Python version ............. = ${PYTHON_VERSION_STRING}"   )
+message (STATUS " .. Python include directories . = ${PYTHON_INCLUDE_DIRS}"     )
+message (STATUS " .. Python libraries ........... = ${PYTHON_LIBRARIES}"        )
 message (STATUS " Ruby support:"                                                )
 message (STATUS " .. Ruby executable ............ = ${RUBY_EXECUTABLE}"         )
 message (STATUS " .. Ruby version ............... = ${RUBY_VERSION}"            )
 message (STATUS " .. Ruby include directories ... = ${RUBY_INCLUDE_DIRS}"       )
 message (STATUS " .. Ruby library ............... = ${RUBY_LIBRARY}"            )
-message (STATUS " SWIG wrapper:"                                                )
+message (STATUS " SWIG wrapper generation:"                                     )
 message (STATUS " .. SWIG executable ............ = ${SWIG_EXECUTABLE}"         )
 message (STATUS " .. SWIG version ............... = ${SWIG_VERSION}"            )
+message (STATUS " .. Enable wrapper for Python .. = ${SWIG_ENABLE_PYTHON}"      )
 message (STATUS " .. Enable wrapper for Ruby .... = ${SWIG_ENABLE_RUBY}"        )
 message (STATUS "------------------------------------------------------------ " )
