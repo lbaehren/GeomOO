@@ -41,5 +41,18 @@ endif (RDOC_EXECUTABLE)
 
 if (DOXYGEN_EXECUTABLE)
 
+  ## Variables substituted in the Doxygen configuration file
+
+  set (DOXYGEN_PROJECT_NAME     "GeomOO")
+  set (DOXYGEN_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
+  set (DOXYGEN_WARN_LOGFILE     "${CMAKE_CURRENT_BINARY_DIR}/doxygenWarnings.log")
+  set (DOXYGEN_IMAGE_PATH       "${CMAKE_CURRENT_SOURCE_DIR}/images")
+
+  ## Configure Doxygen 
+
+  configure_file (
+    ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in
+    ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+    )
 
 endif (DOXYGEN_EXECUTABLE)
