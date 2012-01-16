@@ -1,5 +1,7 @@
 
 ##
+## Author:: Lars Baehren (lbaehren@gmail.com)
+##
 ## Base class defining the common interface and functionality for all shapes.
 ##
 
