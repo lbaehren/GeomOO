@@ -27,4 +27,24 @@ class Shape
     "#@itsName (#@itsDimensions)"
   end
 
+  ## Get the name of the shape
+  def name
+    @itsName
+  end
+
+  ## Set the name of the shape
+  def setName (name)
+    @itsName = name
+  end
+
+  ## Get the dimensions of the shape
+  def dimensions
+    @itsDimensions
+  end
+
+  ## Set the dimensions of the shape
+  def setDimensions (dim)
+    @itsDimensions = dim
+  end
+
 end
