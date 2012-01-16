@@ -32,7 +32,7 @@ add_custom_target (doc ALL)
 if (RDOC_EXECUTABLE)
 
   add_custom_target (run_rdoc
-    COMMAND ${RDOC_EXECUTABLE} ${PROJECT_SOURCE_DIR}/ruby
+    COMMAND ${RDOC_EXECUTABLE} --force-update --diagram ${PROJECT_SOURCE_DIR}/ruby
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
     COMMENT "Generating documentation for Ruby code"
     )
