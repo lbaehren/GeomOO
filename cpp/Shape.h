@@ -57,8 +57,6 @@ class Shape {
   //! Area/Surface of the shape
   virtual double area () const = 0;
 
- private:
-
 };
 
 #endif
