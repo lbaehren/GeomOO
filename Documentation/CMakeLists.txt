@@ -24,16 +24,21 @@ find_program (RDOC_EXECUTABLE rdoc
 ##
 ## ==============================================================================
 
+add_custom_target (doc ALL)
+
 ##____________________________________________________________________
 ##                                                                Ruby
 
 if (RDOC_EXECUTABLE)
 
-  add_custom_target (doc_ruby
+  add_custom_target (run_rdoc
     COMMAND ${RDOC_EXECUTABLE} ${PROJECT_SOURCE_DIR}/ruby
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    COMMENT "Generating documentation for Ruby code"
     )
-
+  
+  add_dependencies (doc run_rdoc)
+  
 endif (RDOC_EXECUTABLE)
 
 ##____________________________________________________________________
@@ -55,4 +60,12 @@ if (DOXYGEN_EXECUTABLE)
     ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
     )
 
+  add_custom_target (run_doxygen
+    COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    COMMENT "Generating documentation for C++ code"
+    )
+  
+  add_dependencies (doc run_doxygen)
+  
 endif (DOXYGEN_EXECUTABLE)
