@@ -49,6 +49,10 @@ find_package (PythonLibs)
 find_package (Ruby)
 find_package (SWIG)
 
+## Custom searches (not covered by standard CMake modules)
+
+find_program (YARD_EXECUTABLE yard)
+
 ## ==============================================================================
 ##
 ##  Project sub-directories
@@ -98,4 +102,5 @@ message (STATUS " .. Enable wrapper for Ruby .... = ${SWIG_ENABLE_RUBY}"        
 message (STATUS " Generation of documentation:"                                 )
 message (STATUS " .. Doxygen .................... = ${DOXYGEN_EXECUTABLE}"      )
 message (STATUS " .. RDoc ....................... = ${RDOC_EXECUTABLE}"         )
+message (STATUS " .. Yard ....................... = ${YARD_EXECUTABLE}"         )
 message (STATUS "------------------------------------------------------------ " )
