@@ -25,7 +25,6 @@ set (GeomOO_VERSION "${GeomOO_VERSION_MAJOR}.${GeomOO_VERSION_MINOR}.${GeomOO_VE
 ##
 ## ==============================================================================
 
-option (ENABLE_DOCUMENTATION "Enable generation of documentation?"        YES )
 option (ENABLE_TESTING       "Enable testing framework?"                  YES )
 option (SWIG_ENABLE_PYTHON   "Enable SWIG generated wrapper for Python?"  YES )
 option (SWIG_ENABLE_RUBY     "Enable SWIG generated wrapper for Ruby?"    YES )
@@ -51,6 +50,7 @@ find_package (SWIG)
 
 ## Custom searches (not covered by standard CMake modules)
 
+find_program (RDOC_EXECUTABLE rdoc)
 find_program (YARD_EXECUTABLE yard)
 
 ## ==============================================================================
@@ -63,9 +63,7 @@ add_subdirectory (cpp)
 add_subdirectory (python)
 add_subdirectory (ruby)
 
-if (ENABLE_DOCUMENTATION)
-  add_subdirectory (Documentation)
-endif (ENABLE_DOCUMENTATION)
+add_subdirectory (Documentation)
 
 ## ==============================================================================
 ##
@@ -74,7 +72,7 @@ endif (ENABLE_DOCUMENTATION)
 ## ==============================================================================
 
 message (STATUS "------------------------------------------------------------"  )
-message (STATUS "[PulsarTools] Configuration summary."                          )
+message (STATUS "[GeomOO] Configuration summary."                               )
 message (STATUS "------------------------------------------------------------ " )
 message (STATUS " System configuration:"                                        )
 message (STATUS " .. Processor type ............. = ${CMAKE_SYSTEM_PROCESSOR}"  )
