@@ -87,8 +87,3 @@ double Circle::circumference () const
 {
   return 2*pi*radius_p;
 }
-
-double Circle::area () const 
-{
-  return pi*radius_p*radius_p;
-}

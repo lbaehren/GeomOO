@@ -54,89 +54,91 @@ class Cylinder : public Circle {
   
  protected:
   
-  //! The height of the cylinder
-  double height_p;
+    //! The height of the cylinder
+    double height_p;
   
  public:
+
+    // === Construction ========================================================
   
-  // --------------------------------------------------------------- Construction
+    /*!
+     * \brief Default constructor
+     *
+     * Constructs cylinder of unit radius
+     */
+    Cylinder ();
   
-  /*!
-    \brief Default constructor
-
-    Constructs cylinder of unit radius
-  */
-  Cylinder ();
+    /*!
+     * \brief Argumented constructor
+     *
+     * \param height -- Height of the cylinder
+     */
+    Cylinder (double const &height);
   
-  /*!
-    \brief Argumented constructor
-    
-    \param height -- Height of the cylinder
-  */
-  Cylinder (double const &height);
+    /*!
+     * \brief Argumented constructor
+     *
+     * \param height -- Height of the cylinder
+     * \param radius -- Radius of the cylinder
+     */
+    Cylinder (double const &height,
+              double const &radius);
   
-  /*!
-    \brief Argumented constructor
-    
-    \param height -- Height of the cylinder
-    \param radius -- Radius of the cylinder
-  */
-  Cylinder (double const &height,
-	    double const &radius);
-  
-  /*!
-    \brief Copy constructor
+    /*!
+     * \brief Copy constructor
+     *
+     * \param other -- Another Cylinder object from which to create this new
+     *                 one.
+     */
+    Cylinder (Cylinder const &other);
 
-    \param other -- Another Cylinder object from which to create this new
-                    one.
-  */
-  Cylinder (Cylinder const &other);
+    // === Destruction =========================================================
 
-  // ---------------------------------------------------------------- Destruction
+    //! Destructor
+    virtual ~Cylinder ();
 
-  /*!
-    \brief Destructor
-  */
-  virtual ~Cylinder ();
+    // === Operators ===========================================================
 
-  // ------------------------------------------------------------------ Operators
+    /*!
+     * \brief Overloading of the copy operator
+     *
+     * \param other -- Another Cylinder object from which to make a copy.
+     */
+    Cylinder& operator= (Cylinder const &other); 
 
-  /*!
-    \brief Overloading of the copy operator
+    // === Parameters ==========================================================
 
-    \param other -- Another Cylinder object from which to make a copy.
-  */
-  Cylinder& operator= (Cylinder const &other); 
+    //! Get the height of the cylinder
+    double height () const;
 
-  // ----------------------------------------------------------------- Parameters
+    //! Set the height of cylinder
+    void setHeight (double const &height);
 
-  double height () const;
+    // === Methods =============================================================
 
-  void setHeight (double const &height);
+    double area () {
+        return surface();
+    }
 
-  // -------------------------------------------------------------------- Methods
+    //! Surface area of the cylinder
+    virtual double surface () const {
+        double s (2*Circle::area());
+        s += 2*pi*height_p*radius_p;
+        return s;
+    }
 
-  double area () {
-    return surface();
-  }
-
-  //! Surface area of the cylinder
-  virtual double surface () const;
-
-  //! Volume enclosed by the cylinder
-  virtual double volume () const;
+    //! Volume enclosed by the cylinder
+    virtual double volume () const {
+        return height_p*Circle::area();
+    }
 
  private:
 
-  /*!
-    \brief Unconditional copying
-  */
-  void copy (Cylinder const &other);
+    //! Unconditional copying
+    void copy (Cylinder const &other);
 
-  /*!
-    \brief Unconditional deletion 
-  */
-  void destroy(void);
+    //! Unconditional deletion 
+    void destroy(void);
 
 };
 

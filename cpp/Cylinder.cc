@@ -101,22 +101,3 @@ void Cylinder::setHeight (double const &height)
   height_p = height;
 }
 
-
-// ==============================================================================
-//
-//  Methods
-//
-// ==============================================================================
-
-double Cylinder::surface () const
-{
-  double s (2*Circle::area());
-//   s += 2*pi*height_p*Circle::radius();
-  s += 2*pi*height_p*radius_p;
-  return s;
-}
-
-double Cylinder::volume () const
-{
-  return height_p*Circle::area();
-}

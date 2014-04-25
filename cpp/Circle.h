@@ -52,72 +52,79 @@ class Circle : public Shape {
 
  protected:
 
-  //! The radius of the circle
-  double radius_p;
+    //! The radius of the circle
+    double radius_p;
 
  public:
 
-  // === Construction ===========================================================
+    // === Construction ========================================================
 
-  //! Default constructor
-  Circle ();
+    //! Default constructor
+    Circle ();
 
-  /*!
-    \brief Argumented constructor
-    \param radius -- The radius of the circle
-  */
-  Circle (double const &radius);
+    /*!
+      \brief Argumented constructor
+      \param radius -- The radius of the circle
+    */
+    Circle (double const &radius);
 
-  /*!
-    \brief Copy constructor
-    \param other -- Another Circle object from which to create this new
-                    one.
-  */
-  Circle (Circle const &other);
+    /*!
+      \brief Copy constructor
+      \param other -- Another Circle object from which to create this new
+                      one.
+    */
+    Circle (Circle const &other);
 
-  // === Destruction ============================================================
+    // === Destruction =========================================================
 
-  //! Destructor
-  ~Circle ();
+    //! Destructor
+    ~Circle ();
 
-  // === Operators ==============================================================
+    // === Operators ===========================================================
 
-  /*!
-    \brief Overloading of the copy operator
+    /*!
+      \brief Overloading of the copy operator
 
-    \param other -- Another Circle object from which to make a copy.
-  */
-  Circle& operator= (Circle const &other); 
+      \param other -- Another Circle object from which to make a copy.
+    */
+    Circle& operator= (Circle const &other); 
 
-  // === Parameters =============================================================
+    // === Parameters ==========================================================
 
-  /*!
-    \brief Get the radius of the circle
-
-    \return radius -- Radius of the circle
-  */
-  inline double radius () const {
-    return radius_p;
-  }
+    /*!
+     * \brief Get the radius of the circle
+     *
+     *\return radius -- Radius of the circle
+     */
+    inline double radius () const {
+        return radius_p;
+    }
   
-  /*!
-    \brief Radius of the circle (default version)
-    \param radius -- Radius of the circle
-  */
-  inline void setRadius (const double& radius) {
-    radius_p = radius;
-  }
+    /*!
+      \brief Radius of the circle (default version)
+      \param radius -- Radius of the circle
+    */
+    inline void setRadius (const double& radius) {
+        radius_p = radius;
+    }
   
-  // === Methods ================================================================
+    // === Methods =============================================================
   
-  //! Diameter of the circle
-  double diameter () const;
+    //! Diameter of the circle
+    double diameter () const;
 
-  //! The circumferences of the circle
-  double circumference () const;
+    //! The circumferences of the circle
+    double circumference () const;
 
-  //! Area enclosed by the circle
-  double area () const;
+    //! Area enclosed by the circle
+    inline double area () const {
+        return pi*radius_p*radius_p;
+    }
+
+    //! Volume of the shape
+    inline double volume () const {
+        return 0.0;
+    }
   
 };
 

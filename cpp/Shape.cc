@@ -12,10 +12,10 @@
   \param dimensions -- Dimensionality of the shape.
  */
 Shape::Shape (std::string const &name,
-	      unsigned int const &dimensions)
+              unsigned int const &dimensions)
 {
-  itsName       = name;
-  itsDimensions = dimensions;
+    itsName       = name;
+    itsDimensions = dimensions;
 }
 
 // ==============================================================================
@@ -29,8 +29,9 @@ Shape::Shape (std::string const &name,
  */
 Shape& Shape::operator= (Shape const &other)
 {
-  itsName       = other.itsName;
-  itsDimensions = other.itsDimensions;
-
-  return *this;
+    itsName       = other.itsName;
+    itsDimensions = other.itsDimensions;
+    itsNofFaces   = other.itsNofFaces;
+    
+    return *this;
 }

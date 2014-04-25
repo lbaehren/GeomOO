@@ -17,47 +17,56 @@ class Shape {
 
  protected:
 
-  //! Name of the shape
-  std::string itsName;
-  //! Dimensionality of the shape
-  unsigned int itsDimensions;
+    /// Name of the shape
+    std::string itsName;
+    /// Dimensionality of the shape
+    unsigned int itsDimensions;
+    /// Number of faces
+    unsigned int itsNofFaces;
 
  public:
 
-  // === Construction ===========================================================
+    // === Construction ========================================================
 
-  //! Argumented constructor
-  Shape (std::string const &name,
-	 unsigned int const &dimensions);
+    //! Argumented constructor
+    Shape (std::string const &name,
+           unsigned int const &dimensions);
 
-  //! Copy constructor
-  Shape (Shape &other) {
-    *this = other;
-  }
+    //! Copy constructor
+    Shape (Shape &other) {
+        *this = other;
+    }
 
-  // === Operators ==============================================================
+    // === Operators ===========================================================
 
-  //! Copy operator
-  Shape& operator= (Shape const &other);
-  
-  // === Parameter access =======================================================
-  
-  //! Get the name of the shape
-  inline std::string name () const {
-    return itsName;
-  }
+    //! Copy operator
+    Shape& operator= (Shape const &other);
 
-  //! Get the dimensionality of the shape
-  inline unsigned int dimensions () const {
-    return itsDimensions;
-  }
+    // === Parameter access ====================================================
 
-  // === Public Methods =========================================================
+    //! Get the name of the shape
+    inline std::string name () const {
+        return itsName;
+    }
 
-  //! Area/Surface of the shape
-  virtual double area () const = 0;
+    //! Get the dimensionality of the shape
+    inline unsigned int dimensions () const {
+        return itsDimensions;
+    }
+
+    //! Get the number of faces
+    unsigned int nofFaces () const {
+        return itsNofFaces;
+    }
+
+    // === Public Methods ======================================================
+
+    //! Area/Surface of the shape
+    virtual double area () const = 0;
+
+    //! Volume of the shape
+    virtual double volume () const = 0;
 
 };
 
 #endif
-
