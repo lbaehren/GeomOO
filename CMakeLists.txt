@@ -84,11 +84,11 @@ find_program (YARD_EXECUTABLE yard)
 ##
 ## ==============================================================================
 
-add_subdirectory (cpp)
-add_subdirectory (python)
-add_subdirectory (ruby)
+# Source code
+add_subdirectory (src)
+# Documentation
+add_subdirectory (doc)
 
-add_subdirectory (Documentation)
 
 ## ==============================================================================
 ##

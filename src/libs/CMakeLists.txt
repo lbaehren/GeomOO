@@ -23,18 +23,13 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #--------------------------------------------------------------------------------
 
-## === Library ==================================================================
 
-include_directories (
-  ${CMAKE_CURRENT_SOURCE_DIR}
-  )
+## === C++ Library =============================================================
 
-file (GLOB geom_cpp_sources *.cc)
+file (GLOB geom_cpp_sources geom_cpp/*.cc)
 
 add_library (geom_cpp ${geom_cpp_sources})
 
-## === Test programs ============================================================
 
-## === Language bindings ========================================================
+## === Python module ===========================================================
 
-add_subdirectory (bindings)
