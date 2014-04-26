@@ -30,6 +30,12 @@ file (GLOB geom_cpp_sources geom_cpp/*.cc)
 
 add_library (geom_cpp ${geom_cpp_sources})
 
+    install (
+        TARGETS geom_cpp
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib
+        )
 
 ## === Python module ===========================================================
 
